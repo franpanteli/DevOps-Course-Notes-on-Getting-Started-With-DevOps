@@ -1,0 +1,534 @@
+Course Title: DevOps Foundations: Infrastructure as Code
+
+Description: Infrastructure automation—transitioning an organization's system administration from hardware into code—is one of the major DevOps practice areas. By automating configuration management, you can make your systems more reliable, processes more repeatable, and server provisioning more efficient. In this course, learn the basics of infrastructure as code, including how to keep your configuration in a source code repository and have it built and deployed just like an application.   Discover how to approach converting your systems over to becoming fully automated—from server configuration to application installation to runtime orchestration. Join notable DevOps practitioners Ernest Mueller and James Wickett as they dive into key concepts, and use a wide variety of tools to illustrate those concepts, including Ansible, Terraform, Docker, Kubernetes, Serverless, and AWS Lambda. Check out this course to gain the knowledge you need to start implementing an infrastructure as code strategy.
+
+
+***********************************************
+Chapter: Introduction
+***********************************************
+
+
+-----------------------------------------------
+Video: Make your systems better with infrastructure as code
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:43            -> infrastructure as code vs building systems by hand. Infrastructure as code <- IAC -> allows testable, reproducible and changeable code 
+
+
+-----------------------------------------------
+Video: What you need to know
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:06            -> IAC in devops -> IAC, continuous delivery and site reliability engineering -> this course is IAC. Pre-requisites -> admin basics, command line (linux) and SSH use, programming / scripting 
+
+0:01:24            -> theoretical and example (not lab-based course) 
+
+
+***********************************************
+Chapter: 1. The Wide World of Infrastructure
+***********************************************
+
+
+-----------------------------------------------
+Video: It's all about the cloud
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:58            -> modern infrastructure. Cloud computing -> "the" cloud <- on-demand, self-service provisioning, broad network access, resource pooling (sharing), rapid elasticity (scaling), measured service (metering). There are three different models -> SaaS (software as a service, software from the internet), PaaS (platform as a service, where you can deploy applications to the cloud, Azure), infrastructure as a service (IaaS, operating system level access to discrete systems / vms in the cloud, it's like a virtual machine as a cloud service) 
+
+0:03:03            -> an example of cloud services -> internet, Alexa <- from servers in data centres. AWS accounts can be free or paid, with different operating systems you would like, different GPUS etc, these can be for personal use or for access from the internet to host a web server on 
+
+0:03:55            -> depending on the amount of servers you need, you can rent out the capacity you need or for how long you need to use it for -> you're paying for the resources you need, not their maintenance or having to own the depreciating hardware 
+
+0:04:18            -> it's a culture of access. You can use their UI, but all the clouds have APIs which can be integrated into your applications 
+
+
+-----------------------------------------------
+Video: Bare metal vs. cloud
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:19            -> the cloud is agile -> you don't need to buy the hardware, you can rent resources. Buying servers vs renting them -> sometimes the cost of buying a server can outweigh the cost of renting the same resources (depending on the amount of usage), renting servers pays for the power / cooling / admins / networking 
+
+0:04:00            -> a data centre -> you pay for the resources you use in the cloud and use quotas for this using a budget for organisation members. Cloud use is standard within organisations -> and there is diverse hardware (GPUs, FGPA, quantum and 5G edge computing). Cloud computing is used depending on if it's cheaper to rent or have the company own the hardware 
+
+
+-----------------------------------------------
+Video: Not your mother's cloud
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:15            -> network, compute and storage. What else the cloud can do -> Azure example - managing databases (SQL to DNS, observability and security etc). Requiring the user to configure the lower level servers. There is a list of services Azure recommends using rather than manually configuring servers -> synapse analytics, spark tools, cognitive server tools, azure maps, SQL server-less pooling, then power BI dash tools <- this is an example where a series of Azure services is used 
+
+
+-----------------------------------------------
+Video: Managed services vs. Bare cloud
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:13            -> managed services vs the cloud -> if the company owns its own servers, this would have required consultants / expert staff. The database would also require configuring -> in comparison to the cloud, where resources are scalable and managed by the provider 
+
+0:03:23            -> most companies don't require a lot of customisation for hardware -> using cloud software allows for more options, but these can require time for the cloud servers to update. This can be an advantage for startups -> managed services need configuring, can be managed by a cloud provider, are ready to scale, but can be more expensive than the cloud and less portable between different cloud providers 
+
+
+-----------------------------------------------
+Video: Containers galore
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:56            -> sometimes using cloud services can be overzealous if they offer too many services you don't need. Containers are another option <- a lightweight unit of software -> a way to run segmented mini-systems 
+
+0:02:32            -> containers vs VMs -> containers virtualise down to a higher level than VMS and boot up quickly -> they look like separate systems. Docker is the most popular container -> docker files (you can take files off of docker hub), nginx webserver -> you can upload containers to image repositories 
+
+0:03:06            -> microservers -> running servers on nodes, managing the connectivity. Containers can be built from their own description files and carry their own environment with them -> they can be run in development and production environments 
+
+
+-----------------------------------------------
+Video: VMs vs. Containers
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:37            -> VMs vs containers -> containers are lighter VMs. Containers are generally smaller and lighter (faster builds). Ephemerality <- a lot of separate smaller containers avoids version conflicts. Containers -> read only, no updates or SSH'ing into them (thick processes rather than servers). Containers are used quickly and discontinued faster -> they need updating for security patches but are smaller and often not running an entire operating system in the container 
+
+0:03:44            -> docker based build pipelines integrate the application and the container build in the same pipeline -> new versions are built whenever there is a new patch / configuration. Containers accelerate the feedback loop for developers -> developers run the identical container on different systems 
+
+0:04:17            -> leverage the safeguards of a well built pipeline in an integrated way 
+
+
+-----------------------------------------------
+Video: Where'd my server go?
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:00            -> for example -> there is a traditional web application which communicates with a server, and then if there is a serverless architecture it's split into functions with no central web server -> the functions are containers which are opened on a read-only file system 
+
+0:02:00            -> serverless -> there are still servers but you don't need to interact with them. Function as a service (FaaS) <- e.g AWS Lambda, Google Cloud functions and Azure functions. There are also open source serverless  programs 
+
+0:02:45            -> how serverless functions are instantiated -> it used to just be used for event handling (compressing and converting files e.g). Now, serverless architectures are used functions such as these are quickly available 
+
+0:02:45            -> serverless encourages functions as deploy units, coupled with third-party services that allow running end-to-end applications without worrying about system operation <- you don't need to worry about the system operation 
+
+0:03:12            -> e.g web requests firing from front end application -> API gateway to generate new contracts -> individual segments of code perform specific operations. The API is broken into a set of functions 
+
+
+-----------------------------------------------
+Video: Serverless vs. Servers
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:33            -> server vs serverless ->  serverless benefits:  scaling built in (handled by the provider), pay for compute in 100ms increments - they only charge for the computing resources you use, no management of servers (or containers) 
+
+0:01:25            -> serverless cons: big applications have large cold start times, run time limits set by the cloud, cost at scale (relatively inexpensive compared to running a dedicated server) 
+
+0:02:33            -> caching and asynchronous responses can improve cold start times, step functions can be used to decompose long running apps, they can also be used to defer the cost of more expensive solutions 
+
+0:03:27            -> serverless gives you more direct visibility of what resources your app uses -> performance improvements and enhancements can be tied to cost without having to use an interpretive model 
+
+
+***********************************************
+Chapter: 2. Adventures in Automation
+***********************************************
+
+
+-----------------------------------------------
+Video: Building the boxes and lines
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:47            -> infrastructure automation -> you can think of this in terms of ones which configure the overall system environment (infrastructure provision), and then ones which configure operating systems (configuration management) <- configuration includes the operating system 
+
+0:01:03            -> cloud containers and serverless -> hardware is set up manually traditionally -> these can involve programatic APIs to build the network. Tools and code can be used to create the infrastructure -> AWS is a complete network of system using json / yml templates -> you can use command line tools to feed descriptions into the cloud 
+
+0:02:20            -> there are tools to create infrastructure in the terminal involving the cloud -> these are called cloud formation files, he's done an example which starts up an OS in the cloud. This is repeatable and can be done simultaneously elsewhere 
+
+0:03:11            -> terraform can be used to make standard constructs, alternatively you can write your own. Those are declarative tools (you declare a description and the code executes it). AWS has a cloud development kit 
+
+0:03:35            -> there is a boto3 library in Python -> you can make instances of this. These can be used to create base systems environments for different clusters 
+
+0:03:36            -> there is a boto3 library in Python -> you can make instances of this. These can be used to create base systems environments for different clusters 
+
+
+-----------------------------------------------
+Video: Everything vs. Terraform
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:14            -> creating network infrastructure from code -> terraform 
+
+0:01:32            -> terraform is an approach for creating networks using the cloud, and it works across several different platforms. Terraform works across different providers. Another method is to do it imperatively in code rather than using a tool -> but this involves re-writing code which infrastructure tools already have 
+
+0:02:25            -> storing infrastructure in terraform -> in terraform you have to choose where to store the state, but you can't easily change base infrastructure using off-cloud services 
+
+0:02:29            -> there is a digital rebar provisioner for terraform 
+
+0:03:40            -> complex infrastructures may need breaking up using different schemes, we can create rationalised dependencies using this 
+
+
+-----------------------------------------------
+Video: What's in the box?
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:02            -> there is a common thought process in devops, where we divide things into developer and administrative / operations -> tools can also be thought of in terms of which of these are 
+
+0:00:23            -> what each running system (box) in the system is, how it is created 
+
+0:00:33            -> provisioning -> making a server ready for operation, including hardware, OS, system services, and network connectivity (you make provisions for the system to be run) 
+
+0:00:38            -> configuration management -> change control of system configuration during and after initial provisioning (configuring the system initially and over time) 
+
+0:01:12            -> deployment -> deploying and upgrading applications on a server. A developer might deploy and application and it's APIs, while operations engineers might provision the OS's / versions of the code 
+
+0:01:31            -> some tools can make operating system level changes and can deploy applications using the same semantics 
+
+0:02:10            -> there is a golang wordcloud generator example -> it downloads a zip file from the application repo and unzips it 
+
+0:02:40            -> infrastructure in services can be used to automate tasks. It is important to be able to control and upgrade a running system. This involves detecting if the system is working as required etc 
+
+0:03:36            -> orchestration -> the act of performing (orchestrating) coordinated operations across multiple systems. Making changes to the system while minimising the overall disruption 
+
+0:04:02            -> knowing how and when to use which tools -> think of the system as long-running boxes, where changes are applied in place, or replaced for each deployment 
+
+
+-----------------------------------------------
+Video: Declarative vs. imperative
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:30            -> declarative vs imperative <- options for how a configuration management system works 
+
+0:01:59            -> convergent -> converging the result towards the desired one. Imperative approach -> specify the compulsory required tools more explicitly. Declarative model -> what we want to happen. Imperative model -> how we want it to happen 
+
+0:03:43            -> configuration management is more standard (wanting the boxed to upgrade themselves). Large scale systems run on applications which commonly run using convergent methods (e.g to try and update themselves). Imperative provisioning -> we're assuming the state of the system is constant (by the time the approach is implemented, the system could have changed) 
+
+0:05:04            -> less complex individual systems -> containers in serverless. Cloud infrastructure has controlled APIs (declarative approach), but imperative models give more control 
+
+
+-----------------------------------------------
+Video: Everything vs. immutable
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:13            -> immutable deployment -> provisioning which isn't changeable. You deploy infrastructure, and when changing it you destroy it and re-create it. Changing the content of the servers -> repairing vs replacing servers, e.g to make code changes of security patches 
+
+0:02:32            -> immutable methods allow code to be created in a reasoned way, you can also perform more sophisticated roll-out strategies. Doing the install once to an immutable artefact and deploying it 
+
+0:03:03            -> micro services and putting a limited load on each system, so that they are specific in their role. Tracking artefacts 
+
+0:03:46            -> you can't throw away storage in an immutable environment (re-making the artefact from scratch each time). To log in and make changes to fix production problems, have lots of observability to figure out the failures in the code, fix the code and deploy a new version and make the pipeline fast and reliable 
+
+0:05:44            -> you can make single processes immutable (and repeat them) 
+
+
+***********************************************
+Chapter: 3. Bringing It All Together
+***********************************************
+
+
+-----------------------------------------------
+Video: Provisioning lab overview
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:43            -> lab environments built with different infrastructure automation tools. This chapter is an example on code as infrastructure 
+
+0:01:47            -> in the terminal -> generating an SSH key, SSH into a cloud service (AWS account which you create). He's using an open source project kubespray to make an AWS cloud structure using terraform, then installing applications on it (kubernetes and others). Using network security in the cloud 
+
+
+-----------------------------------------------
+Video: AWS
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:40            -> provisioning lab -> on the AWS webpage, he's logged in, then security credentials and setting up two factor authentication, logging in as an IM admin account rather than the root account, then setting up admin keys 
+
+0:02:46            -> AWS -> compute and storage, to ML, game development etc. Under compute, he is opening EC2 (elastic compute cloud - running virtual servers in the cloud). There are different options for manipulating storage, etc 
+
+0:04:53            -> to run a server -> he's changed the location (picking the location of the data servers we're using), then launch instances in the AWS webpage. He's naming the server, the different application and OS images, then the instance type (hardware size of the container), then setting an SSH key, network security, storage -> then launch instance and it's started the launch 
+
+0:05:32            -> you can view more information including the public IP address of the server, security and networking settings. It's like a printer, you can run the server / connect to it over the cloud 
+
+0:06:31            -> he's opened a command line in the Ubuntu server from AWS. In the AWS EC2 console, you can stop and start the instance -> it's not charging if it's powered down. You can also terminate the server from there 
+
+0:06:49            -> renting computer services via AWS 
+
+
+-----------------------------------------------
+Video: Terraform
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:41            -> Terraform for infrastructure provisioning -> in the AWS console, we can see multiple servers ready to become part of a cluster. These servers were all generated using terraform -> and the code for making a kubernetes cluster was taken from github kubespray 
+
+0:00:51            -> Terraform for infrastructure provisioning -> in the AWS console, we can see multiple servers ready to become part of a cluster. These servers were all generated using terraform -> and the code for making a kubernetes cluster was taken from github kubespray 
+
+0:01:20            -> he is inspecting the code on github -> teraform.tfvars for common configuration parameters which can be changed (you can take code form git and change some parameters). He's inspecting the rest of the git code to understand how it works 
+
+0:02:10            -> there are modules in the inspected code, which contain sub-modules for the code to do specific things. Understanding code / reusing open source code instead of writing your own 
+
+0:03:07            -> in AWS, he's ran the code from github and it's created multiple different servers to form a cluster. Then in the terminal, he's connecting to the servers -> ls -l lists all of the different servers, then he's opening a state file. This contains details about the different assets which the terraform created 
+
+0:03:23            -> think of terraforming as generating the different servers in a cluster on the cloud 
+
+0:04:32            -> he's going in and changing the properties of the cluster -> there is a configuration file which he's opened in vim in the terminal and edited information about the number of workers in the cluster. Then he's validating code to make sure the changes were executed -> terraform validate. Then terraform plan -> this dry-runs code and shows you where the implied changes in the code are 
+
+0:05:13            -> He's gone back to the AWS website and checked that the changes made in the terminal were initialised 
+
+0:05:13            -> then in the terminal, terraform apply -> so he's made the servers in AWS using code from github, then connected to them in the terminal, changed one of the parameters in a configuration file for the number of workers the server is using, then checked the changes and ran them 
+
+0:06:02            -> terraform plan in the terminal -> the infrastructure matches the configuration. Then he's checking in the tfstate file using vim in the terminal that there are details about the extra server he added 
+
+
+-----------------------------------------------
+Video: Ansible
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:39            -> configuration management for software -> Kubespray has Ansible playbooks in yml files. These check different versions to ensure they can run on the system 
+
+0:01:23            -> in the terminal, ansible(then the name of the file) <- it's ran multiple checks and they work. The importance of running different tests at each stage to ensure the code is functioning properly 
+
+0:01:36            -> he has opened another yml file in vim using the terminal -> there is a playbook, and in the file we can see there are different hosts being setup and each of them does a role 
+
+0:02:37            -> he's cd'ing around the file structure in the terminal which is connected to the AWS servers. At the bottom level, there are commands -> package: ..., then raw: ... (make the package and execute the command) 
+
+0:03:26            -> to run Ansible on remote servers, he's opened another inventory file in vim in the terminal. They are named in specific formats and broken down into roles -> so it understands which server in the cluster does what 
+
+0:04:22            -> then kubctl get nodes -> and it shows the different nodes in the cluster and their status. In the previous video, he added a fourth node to the cluster -> but it doesn't have Kubernetes installed on it, so he's using a playbook for scaling clusters called scale.yml (vi then it's name) 
+
+0:05:18            -> scale.yml is running pre-requisites and installing different software / Kubernetes onto the new node in the system. ansible-playbook (and multiple options) -> this determines that there is one node (the new node) without the software, and it installs it on it 
+
+0:05:48            -> after installing, he's checking the status again -> kubectl get nodes. This shows the status of the different nodes in the cluster, and the new cluster now has the packages installed 
+
+0:06:30            -> Ansible can be used to install packages on nodes using nested playbooks -> these can be executed locally or remotely. Complex workflows can also be implemented with these tools 
+
+
+-----------------------------------------------
+Video: Docker
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:31            -> in the webpage, we have containers, images and volumes 
+
+0:00:32            -> docker containers -> micro vms. Docker desktop -> containers, images and volumes 
+
+0:01:09            -> then in the terminal, he is in a github repo -> we have a program which converts text into a wordcloud generator. We're putting the code from it into a container and then executing the container 
+
+0:01:40            -> in the terminal - vim makefile <- there is an entry named docker build. There is the underlying architecture of the box (you need to take into account if you are building on intel / arm / amd based, depending on your computer) 
+
+0:02:15            -> he's going through the different stages -> it first runs build. Then, putting it into a container -> docker-build-mac 
+
+0:03:02            -> he's started with a 5MB light container, then it's copying in the software for the word cloud generator, building ports (an entry port). Then make docker-build -> this builds the app and makes a new docker image 
+
+0:03:14            -> so he's used the terminal to make the container with the software, and back on the docker website you can see it's installed in the container 
+
+0:04:05            -> in the make file in the terminal -> make docker-run. We have a container which is running -> then he's opened the container in the docker website and it's opened a Chrome page with the application for the word cloud generator running 
+
+0:04:55            -> to share the image with other people, he's gone back into the terminal. Docker push -> he's pushing the results for intel and arm macs into docker hub (which is a public repository for images). Make docker-push <- in the terminal, this pushed the image from the wordcloud generator to a public repo on docker 
+
+0:05:17            -> we have an application on a linux container, which is running in docker, then exporting the images from it into a public repository 
+
+
+-----------------------------------------------
+Video: Helm charts
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:15            -> in the terminal -> installing an application on the Kubernetes cluster 
+
+0:01:14            -> HELM charts for deploying applications, he's installed it on the server using the terminal. helm version, helm repo list, helm search repo bitnami <- these are a lot of the different helm charts it has for open source projects 
+
+0:02:19            -> he's downloading a helm chart using helm pull (name of package) -> then tar zxvf n.... <- to unzip / unpack it. He then cd's into the helm chart directory and explores the different files in it using the terminal -> we have files with top-level configuration settings for the webserver 
+
+0:03:09            -> then there is a folder with template files, and there is a file for each type of service which can be implemented in Kubernetes. He's opened one of the files in vim and is inspecting it 
+
+0:03:27            -> making your own helm chart rather than downloading one and using it. In the terminal logged into the server -> helm create wordcloud, then he's ls'ing into it 
+
+0:04:54            -> then vi .... .yml <- he's inspecting the files which it created -> it deployed a webserver, and then editing the files it created to the helm chart we want to create -> so that it works for a wordcloud generator. Changing the type to LoadBalancer enables the application to be accessed on the web 
+
+0:05:19            -> he's also changed the tags, which requires an understanding of the settings configuration files use 
+
+0:06:16            -> back in the terminal, checking the syntax -> helm lint wordcloud <- now we're running tests. Then helm template --validate --debug wordcloud -> it's parsed the helm chart, and this returns a list of actions it plans on taking when the installation is ran 
+
+0:06:17            -> whenever he makes a change to the code, he constantly runs checks 
+
+0:07:15            -> then helm install wordcloud wordcould/ --values wordcloud/values.yml <- this installs the helm chart on the kubernetes cluster. Then helm list <- this returns a list of the created assets. Then kubectyl get all <- this returns the status of the different nodes 
+
+0:07:51            -> this used infrastructure as code -> github, docker, terraform repository, helm repositories <- contributing to community assets 
+
+0:08:01            -> it's returned a URL, which he pastes into Chrome -> and we can see the wordcloud generator app which was installed 
+
+
+-----------------------------------------------
+Video: Serverless
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:56            -> serverless -> not setting up the infrastructure to get the code running. Using the AWS server application model website > create app > node starter <- there are a lot of different options depending on the context 
+
+0:01:55            -> he's named the process, which outputted a line of code he pasted into the terminal to initialise the process. This outputs a URL, which returns a webpage when pasted into Chrome 
+
+0:03:05            -> he's in the terminal again, and exploring the index files -> this relates to what was printed on the webpage. In the AWS webpage, he has an API linked -> this sends traffic over to the function. Setting up a serverless network connected our application to AWS automatically 
+
+0:03:54            -> serverless code is pay per use. Back in the command line, he's changed one of the files in vim -> then serverless deploy. Back in the URL, the changes which he made to the code are visible 
+
+0:04:16            -> serverless can scale horizontally to manage higher traffic volumes 
+
+
+***********************************************
+Chapter: 4. With Great Power Comes Great Responsibility
+***********************************************
+
+
+-----------------------------------------------
+Video: What is infrastructure as code?
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:41            -> infrastructure as code -> our ability to do this depends on the system and tools we are using. Infrastructure as code (rather than just in code) 
+
+0:00:58            -> infrastructure as code -> an approach to infrastructure automation based on practices from software development <- so we're automating code, using code principles (it's treating infrastructure with the same tools as code) 
+
+0:02:42            -> consistent repeatable code for provisioning and changing systems and their configurations. Treating infrastructure as code. Having reproducible code and being able to easily troubleshoot 
+
+0:03:28            -> having a model driven system which takes more time to create, but is more efficient in the long run. E.g building a tool which takes models which devs and ops collaborate on, instantiates them in AWS, deploy code and connects services to each other 
+
+
+-----------------------------------------------
+Video: Continuous integration for infrastructure
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:57            -> the pipeline to go from code, to artefact to running system -> the code is built, checked multiple times and released to the environment. This isolates changes, lets us trace back specific deployments 
+
+0:01:45            -> to do this, use source control and git. Remote -> clone -> branches -> working files. The system building, testing and repeating. The code -> artefacts, versions / unchanging versions of code which are deployed in zips / docker images / vms etc 
+
+0:02:31            -> declarative, reproducible packages. Deciding what the artefacts are and how to manage and version them 
+
+0:03:33            -> one team can build everything into OS packages and leverage build in dependency management, then build different docker images -> the process is controlled through a build in system. There are different methods of storing artefacts 
+
+
+-----------------------------------------------
+Video: Testing infrastructure
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:24            -> testing -> this is more important with CI. Always test the infrastructure 
+
+0:02:12            -> there used to be a checklist and could be testing systems. Now, testing infrastructure is similar to testing code -> the more common tests are unit testing (testing individual parts of the code, it's testing a unit of code - unit testing), there are examples of different unit tests for different cases (e.g in terraform, terraform validate -> see documentation for more) 
+
+0:03:05            -> integration testing is the nest most common type of test after unit testing, this focuses on testing multiple components together (when integrating parts of the code together, so you want them each to be unit tested first) 
+
+0:04:18            -> there are terraform test frameworks. The least most common type of testing is end to end testing -> testing the entire system. This is the least common type of testing because it takes the most time, and the entire system can change frequently. This test is desirable because it emulates the user experience 
+
+0:05:10            -> systems can have multiple different tests they run, and these can be in a specific order. He's constantly stressing the importance of running tests, whenever changes to the system / pipeline are made 
+
+
+-----------------------------------------------
+Video: Works on my machine
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:00            -> deployment -> CI/CD <- continuous integration / deployment. You want reproducible infrastructure (this needs testing). Dev -> testing -> production. If you can have repeatable deployments, you can have rollbacks and forwards 
+
+0:01:49            -> to keep testing and production environments the same -> versioned artefacts for the code and infrastructure as code, use code to make a production-like environment in each phase of the dev cycle and having a mechanism to deploy the code in an identical way in each artefact 
+
+0:02:49            -> identical environments -> most differences between test environments and artefacts are more costly to close but have lower risks of failure once this is done 
+
+0:03:39            -> deployment -> deployment is code -> stable versioned artefacts, generate your own identical environments and deploy with the code in each place 
+
+0:04:20            -> manual deployments of apps across clusters of apps -> writing simple deployment scripts can speed up the deployment 
+
+
+-----------------------------------------------
+Video: You write it, you run it
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:57            -> infrastructure as code -> developing the infrastructure code and code for the artefacts, testing and deploying it separately. Things change -> the app is used in different ways and has different users 
+
+0:01:35            -> the person who wrote the code can change it if there is a problem (this is more efficient than someone else having to understand it and then change it) 
+
+0:02:25            -> take a team approach, put together good observability and monitoring, have an incident management process, prioritise regression testing. Having infrastructure pipelines which route issues to the right teams 
+
+0:03:17            -> operations dealing with errors, when the person who wrote the code could fix the errors because they understood the code better (they wrote it), and using operations as a backup if the issues with the code couldn't be fixed 
+
+
+-----------------------------------------------
+Video: Automate all the things
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:46            -> there are applications and infrastructure -> but we also have monitoring, runbooks, documentation, API definitions, SaaS integrations -> it is the most productive to automate these wherever possible 
+
+0:01:42            -> you can define monitoring protocols in code, you can also write runbooks as versions and deploy them from artefacts -> this is similar to what can be done with documentation 
+
+0:02:31            -> monitoring causing production outages -> define, build, test, deploy. There are approaches to treat extra components as code -> e.g password managers 
+
+0:02:56            -> coded, versioned, tested, deployed in test, then used in production in a controlled manner 
+
+
+-----------------------------------------------
+Video: CI for my IaC
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:17            -> instead of using a CI system, he made a change and uploaded it to git. This is making a pipeline using github actions. In this example, we're using the build and push github action 
+
+0:01:40            -> in this example he's making a new job for the action. First, he's transferring the application binary to the new job which we're going to create 
+
+0:02:58            -> he sets the name for the artefact on the git page, then integrates it with docker. He's set a dependency in the code and docker metadata. There are also secrets in the github actions in this example. The last block of code in the example is build and publish 
+
+0:04:08            -> he then commits changes, and this can be shown in the actions for the project. In the status, the build is starting to run. Then in docker hub (a separate webpage), these changes to the container can be seen 
+
+0:04:48            -> actions can be stacked together to enable the environment to update and alert the team when the new version has been published 
+
+0:04:50            -> there is another example, where in the github example he's changed the version fo the code and committed the changes. There is a new github action for this change 
+
+0:04:58            -> CI is not just for applications 
+
+
+-----------------------------------------------
+Video: The GitOps model
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:48            -> gitops -> this is a way of doing continuous delivery. Declarative orchestration 
+
+0:01:38            -> gitops -> declarative (it has to have it's desired state stated declaratively), it's versioned and immutable (it has versions and history), pulled automatically and continuously reconciled 
+
+0:01:51            -> you skip over a separate artefact layer and pulling a specific version of everything out of git revision control 
+
+0:02:04            -> this can work well for driving declarative frameworks 
+
+0:02:19            -> gitops for treating infrastructure as code 
+
+0:03:24            -> gitops drawbacks -> complexity (transitioning existing systems into gitops can be a complex process), limited flexibility (there can be desired states which can't be achieved if certain desired features haven't been added yet), limited visibility (it takes desired states and applies changes, but we want a way of putting real-time visibility into the current state of the system for troubleshooting 
+
+0:03:41            -> gitops isn't the only way to do version control 
+
+
+***********************************************
+Chapter: Conclusion
+***********************************************
+
+
+-----------------------------------------------
+Video: Where to go from here
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:15            -> ruby -> this is the language which a lot of the different softwares use for infrastructure automation. A culture change is required to build systems and workflows which are optimised according to the use of these tools 
+
+0:01:36            -> using tools and systems which are better for the overall teams, rather than sub-teams 
+
+0:02:16            -> greenfield projects are pilot projects which are run with teams using a new production method -> there are fewer legacy dependencies. Brownfield developments are on legacy code 
+
+0:02:57            -> choosing tools to use, defining the desired code, setting up system monitoring 
+
+0:03:25            -> another approach is to gradually introduce new tools into the deployment pipeline 
+
+0:03:27            -> automating infrastructure, and infrastructure as code 
+
