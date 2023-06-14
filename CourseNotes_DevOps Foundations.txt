@@ -1,0 +1,458 @@
+Course Title: DevOps Foundations
+
+Description: DevOps is not a framework or a workflow. It's a culture that is overtaking the business world. DevOps ensures collaboration and communication between software engineers (Dev) and IT operations (Ops). With DevOps, changes make it to production faster. Resources are easier to share. And large-scale systems are easier to manage and maintain.  In this course, well-known DevOps practitioners Ernest Mueller and James Wickett provide an overview of the DevOps movement, focusing on the core value of CAMS (culture, automation, measurement, and sharing). They cover the various methodologies and tools an organization can adopt to transition into DevOps, looking at both agile and lean project management principles and how old-school principles like ITIL, ITSM, and SDLC fit within DevOps.   The course concludes with a discussion of the three main tenants of DevOps—infrastructure automation, continuous delivery, and reliability engineering—as well as some additional resources and a brief look into what the future holds as organizations transition from the cloud to serverless architectures.
+
+
+***********************************************
+Chapter: Introduction
+***********************************************
+
+
+-----------------------------------------------
+Video: Development and operations
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:00            -> devops fundamentals -> software releases can benefit from devops -> culture, infrastructure automation then reliability engineering, concepts, tools and practices, emerging technologies 
+
+
+***********************************************
+Chapter: 1. DevOps Basics
+***********************************************
+
+
+-----------------------------------------------
+Video: What is DevOps?
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:14            -> devops -> the practice of operations and development engineers working together. There used to be different teams -> for code, testing, deploying and operating the code. Devops -> operations staff using the same techniques as developers. Values, principles, methods, practices and tools 
+
+0:03:00            -> benefits of devops -> effective in improving IT and business outcomes, fewer failures and faster recovery times. High tech can lead to burnout -> devops reduces unplanned work. It is a combination of development and operations -> everyone on the code side (development), and people on the system / admin side is operations (it's the combination of administrators and software developers) 
+
+0:03:16            -> 5 levels of devops -> values, principles, methods, practices and tools 
+
+
+-----------------------------------------------
+Video: DevOps core values: CAMS
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:49            -> CAMS -> culture, automation, measurement and sharing. Debois -> it's a human / cultural problem. Culture is behaviour driven -> it used to be development and operations as two separate teams. Automation -> bringing back balance -> people over process over tools. Automation is to accelerate the process. Measurement -> we're measuring the performance -> looking at the correct metrics and doing it correctly. E.g mean time to recovery, cycle time, costs, revenue and employee satisfaction 
+
+0:03:20            -> sharing -> Kaizen -> discrete, continuous improvement. CAMS -> culture, automation, measurement and sharing 
+
+
+-----------------------------------------------
+Video: DevOps principles: The three ways
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:41            -> principles for devops -> three ways -> systems thinking (begin with the end in mind, optimise the entire thing rather than individual parts at the expense of other parts - understand the entire system. From concept to cash -> the split between development and operations), amplify feedback loops (creating, shortening and amplifying feedback loops -> a process which takes its output into consideration when deciding what to do next), a culture of continuous learning and experimentation 
+
+0:03:28            -> you want to minimise the time in between when something goes wrong and when it is detected and fixed -> continually using feedback to make sure the bug is quickly detected and spends as little time as possible affecting things 
+
+0:04:50            -> create a work culture which allows for experimentation and learning -> try different things to see what works, vs analysis paralysis. Doing -> repeating and trying different things -> fail fast. How tools are used, and not having the tools themselves (how they're used) -> the aims are to create team processes, to create team standards and as part of a management style -> building in feedback loops 
+
+0:05:47            -> building in feedback loops  
+
+
+-----------------------------------------------
+Video: Your DevOps playbook
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:57            -> devops playbook -> methodologies -> people over process over tools. We first identify the responsible person, the process which is needed and then the best tool. People often buy tools and go up the chain -> but this starts with the responsible people, then build processes and choose the best tools 
+
+0:01:32            -> continuous delivery -> release code in small continuous batches and improve each time the batches are released (this also works for legacy code) 
+
+0:01:49            -> lean management -> small batches of work, work in progress limits, feedback loops, visualisation 
+
+0:02:23            -> change control -> the relation between operational success and control over changes in the environment. Eliminating fragile artefacts, creating a repeatable build process, managing dependencies and creating an environment of continual improvement 
+
+0:03:04            -> infrastructure as code -> systems should be treated like code (checked in source control, code reviews) 
+
+
+-----------------------------------------------
+Video: Ten practices for DevOps success: Ten through six
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:07            -> practices for devops success -> incident command system -> when an incidence happens to the command system -> when failures happen. Developers on call -> have developers who provide a fast feedback loop. Public status pages -> communicate to the public when something is down. Blameless postmortems -> there is no single cause for an incident -> learning from failures while avoiding logical fallacies / scapegoating for the failure 
+
+0:03:32            -> embedded teams -> wanting to ship new code vs maintaining the current code. Making each team responsible for their own section of the code 
+
+0:03:33            -> embedded teams -> wanting to ship new code vs maintaining the current code. Making each team responsible for their own section of the code 
+
+
+-----------------------------------------------
+Video: Ten practices for DevOps success: Five through one
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:37            -> the cloud -> automation and infrastructure -> the cloud can be used to control automation. Andon cords -> these are physical cords which individual people can pull to stop the production line from going if something went wrong. Andon cords are cords developers can use to stop code if something is wrong 
+
+0:02:22            -> dependency injection -> connections to external servers -> inversion of control. The application shouldn't know anything about its external dependencies 
+
+0:02:53            -> blue green deployment -> instead of testing and releasing, we have two identical systems -> when we want to make an update, change the offline system then put it online. If it goes wrong, you switch to the other backup system 
+
+0:04:10            -> focus on making the system reliable in the face of unreliability -> deliberately doing hard things or challenging the system to make it resilient 
+
+
+-----------------------------------------------
+Video: DevOps tools: The cart or the horse?
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:51            -> tools and their benefits -> and how there are a lot of them due to innovations. The devops tool chain -> you want a series of tools which can work together -> tools also have an ongoing cost and they should complement each other 
+
+0:02:31            -> teams which don't use new tools are at a disadvantage 
+
+0:03:53            -> what makes a good tool -> you want it to work with other tools, to be verifiable (proof that it does what it is supposed to do via metrics), you want it to be stable and to be able to automate it. First you need to see if there are existing tools rather than getting new ones 
+
+
+***********************************************
+Chapter: 2. DevOps: A Culture Problem
+***********************************************
+
+
+-----------------------------------------------
+Video: The IT crowd and the coming storm
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:00            -> IT departments -> success and satisfaction rates with IT are low. There are numerous groups which may not work well in tandem -> the wall of confusion. Divisions between groups with common goals. Developers -> new functionality, making changes and moving quickly. There is a conflict of interest between this and operations -> maintaining stability and controlling change. The more synergy between them the better the overall outcome 
+
+0:04:25            -> business and IT alignment -> IT processes and organisations need to keep pace -> spec, procurement, order, delivery, racking, config, use -> the entire thing could be done in 15 minutes if done virtually, but what made it last longer was the admin in the company in this example. People outsource and use shadow IT if there are issues in the company 
+
+
+-----------------------------------------------
+Video: Use your words
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:40            -> the company culture wants to allow for changes to happen quickly. Communication -> blameless postmortems and transparent uptime. Postmortems should happen within 48 hours after an outage -> have a meeting and arrange to build a timeline to show the order that things occurred. We want to cover the entire timeline and prevent a future event again, rather than blaming people who enabled the outage in this example 
+
+0:03:10            -> we want a description of the incident, the root cause, how the incident was fixed, timeline and actions, improvements, how customers were affected and corrections to be made. Transparent uptime -> as we interact with the customers, we communicate with them during an outage -> admit failure, sound like a human when communicating errors to the users, have a communication channel and be authentic with stakeholders 
+
+
+-----------------------------------------------
+Video: Do unto others
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:04            -> do unto others -> devops involves collaboration -> building trust and respect, and eliminating blame and hostility so people feel safe to try new things. There are suggested books for working in teams -> win friends and influence people, how to say it at work, the no ... rule, crucial conversations and getting to yes. The biggest miscommunications are -> lack of context and due to conflicting goals given the goal they have 
+
+0:03:04            -> e.g someone is angered their project isn't a higher priority and undervalues someone else's work -> their frustration comes from a place of not knowing what the other team is doing. People think operations don't take as much work but one team might have misconceptions about the value and level of work which other teams put in. They also have different languages and subcultures 
+
+0:04:19            -> you can't put everyone on the same team because there is an ideal number of people per team -> so open up the team's information to other teams so the language between them is transferrable. Open it up -> chat rooms, wiki pages, code, infrastructure etc. Least privilege is for security -> but opening up chats to other teams can improve communication 
+
+0:05:06            -> chatops -> instead of using a chat client -> discuss as part of an operational system. You can issue commands from chatrooms and they are universally accessible. See Web Operations and Effective DevOps books 
+
+
+-----------------------------------------------
+Video: Throwing things over walls
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:37            -> as a leader making a move to devops -> change is always hard, leading the team through the change. Put the right people on the team and make it autonomous (let people lead their own sub-teams -> queuing theory). How many teams does the concept have to go through to get to the cash? Shadow IT / bi-modal IT -> the kinds of jobs people do under devops change 
+
+0:03:46            -> there is less need for people who manually enter information -> devs have to take responsibility for failures, be willing to go on call and application engineers need to be able to provide self service applications and guidance. Education, understanding and encouragement to implement devops 
+
+0:05:35            -> process issues -> Conway's laws -> your systems align themselves to your communication boundaries. Agile processes -> he's giving an example where there are different models, the Westrum Model -> power, rule or performance oriented. Minimum viable process and letting the team decide -> you look for processes which can be removed 
+
+
+-----------------------------------------------
+Video: Kaizen: Continuous improvement
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:05            -> you can do peer code reviews, have higher process laws etc -> the more trust and discretion you give to the people you lead, the better -> and coaching them. Management best practices -> re-organising into independent cross-functional teams, helping people through change (understanding peoples' fears) and using agile, lean processes 
+
+0:04:07            -> Kaizen -> lean was implemented in Japan. Kaizen is a devops cultural process -> continuous improvement. Principles -> good processes bring good results, go see yourself (gemba - the real place, the locus - looking where the problem is, management by walking around -> plan, do, check, act - problem solving cycles), speak with data and manage by facts, take action to contain and correct root causes, work as a team, kaizen is everybody's business. The 5 whys -> asking why 5 times to get to the root cause of a problem -> focus on causes not symptoms, don't accept "not enough time", don't accept human error as a root cause -> "people don't fail, processes do" 
+
+
+***********************************************
+Chapter: 3. The Building Blocks of DevOps
+***********************************************
+
+
+-----------------------------------------------
+Video: DevOps building block: Agile
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:45            -> agile -> the history of devops is rooted in agile. Agile was written in 2001 -> the previous approach to software development was a waterfall approach -> it would be done one stage at a time. Agile development works in a series of sprints -> there are frequent plans and launches. Instead of one large cycle, it works in multiple smaller cycles -> this gives more room for feedback 
+
+0:04:14            -> there is an agile manifesto, but in misses mentions of operations and the last part of the software delivery pipeline. Agile isn't the same as devops -> devops can be seen as an extension of agile (developing code in a more agile way). Operations are added to the list of stakeholders 
+
+
+-----------------------------------------------
+Video: DevOps building block: Lean
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:48            -> lean -> processes for eliminating waste -> lean software development an agile toolkit (book). Principles -> elimitate waste (recognise which activities add value and those which don't -> muda - work which adds no value, muri - unreasonable work, mura - inconsistent work), amplify learning, decide as late as possible, decide as fast as possible, empower the team, build integrity and see the whole 
+
+0:03:41            -> partially done work, extra features, relearning, handoffs, delays, task switching and defects <- forms of waste. Build, measure, plan <- minimal viable product then getting feedback on it. Concept to cash -> the value stream of an idea (from conception to customers). CALMS -> culture automation lean measurement sharing -> the goal, the lean startup and the lean enterprise are all books 
+
+
+-----------------------------------------------
+Video: ITIL, ITSM, and the SDLC
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:04:16            -> ITIL -> what devops borrows principles from -> IT service management in the development lifecycle. ITIL <- information technology structure library (begun with the UK government). Phases. -> service strategy, design, transition and operation. It's more of a top-down approach at management. The visible ops handbook 
+
+
+***********************************************
+Chapter: 4. Infrastructure Automation
+***********************************************
+
+
+-----------------------------------------------
+Video: Infrastructure as code
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:26            -> automation -> IaC <- infrastructure as code. Source control -> treating the system as code -> development, unit and integration testing -> deployment. E.g making an infrastructure model which everything is constructed from to ensure consistency 
+
+
+-----------------------------------------------
+Video: Golden image to foil ball
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:02            -> testing infrastructure -> only using tools won't suffice -> cattle, not pets <- process servers. Configuration management -> build systems, maintaining and upgrading their configuration. Provisioning -> preparing a server for operation. Deployment -> deploying and upgrading applications on the server. Orchestration -> performing coordinations across multiple systems 
+
+0:01:22            -> provision -> CFEngine -> puppet -> chef. There was also deployment. Minimal initial provisioning and using tools for doing the rest incrementally. Systems automatically converge their state. Orchestration and having code which checks for changes and automatically pulls changes. Provisions -> you make provisions for the server to be ready to deploy code. Deployment -> deploy / release code. Orchestration -> orchestrating operations across different systems 
+
+0:02:09            -> configuration management -> change control and system control after provisioning. Imperative -> this is an approach where commands desired to produce a state are defined and executed. Declarative <- define a desired state and the tool converges the system state. Self-service -> the user being able to initiate the process without going through a developer 
+
+0:03:56            -> development and operations teams worked separately and used separate tools. Provisioning -> making provisions for the server to be ready -> getting the server ready. We use a minimal approach to prepare servers, which can be reused across systems. Idempotent -> remains unchanged (think of eigenvalues) -> the systems are converging their states when we prepare them 
+
+0:06:41            -> orchestration -> you have the developers who make changes to the code, and the servers, which check if changes have been made, and then push the changes. Some approaches use push mechanisms and can be used to automate tasks. Canary (staged) deployment, load balancer (blue green) deployment -> there are multiple ways of managing servers. There are also systems which never update the software 
+
+
+-----------------------------------------------
+Video: Immutable deployment
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:39            -> uses of configuration management -> public and private cloud computing -> AWS, Azure. You can use a mix of models, but this may be sub-optimal -> controlling applications is easier if done from the same platform. There are also container-based pipelines. Immutable infrastructure and apps -> you have no reason to change the state once it's deployed, deploying entirely new systems 
+
+0:06:46            -> docker repos -> he's giving an example, using Maven then Artifactory and pushing the changes to the cloud. CMDB -> data warehouse (legacy, increasingly retired). Containers were used at increasing frequencies. Kubernetes -> container administration, service discovery 
+
+
+-----------------------------------------------
+Video: Your infrastructure toolchain
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:03            -> back ends -> cloud, AWS, container based approaches. Amazon allows the specification of different properties for the containers, Terraform is another example. Looking at modelling and configuring applications in the same software / on the same platform -> Juju is an example of this and is more common in the docker environment. There are different softwares for configuration management -> managing various servers. We also  have to manage various OD's in some cases 
+
+0:03:41            -> servers are updated at different rates depending on which software / platform is used. Containers are managed using docker files -> these are managed with the minimal amount of OS. Cloud based platforms also create hosts for these  
+
+
+***********************************************
+Chapter: 5. Continuous Delivery
+***********************************************
+
+
+-----------------------------------------------
+Video: Small + Fast = Better
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:02            -> continuous integration and delivery benefits -> software used to be built and deployed -> now unit test are continually run. Continuous integration -> automatically building and testing the entire application. Continuous delivery -> deploying every change to a production-like environment, and performing automated integration and acceptance testing 
+
+0:03:24            -> continuous deployment -> after every change, automatic deploying to production. Motivations -> time to take a product to market / concept to cash, quality increases with more testing of the code, it limits the work in progress (we evaluate and deploy changes as each of them happen). It shortens lead times for changes and improves mean time to recover 
+
+0:04:49            -> it's continually testing and developing new code -> there are two vectors if you are in a failure state. If you change code and test it each time after it's changed, then it's easier to figure out which part of the code is causing errors 
+
+
+-----------------------------------------------
+Video: Continuous integration practices
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:03            -> continuous integration, delivery and deployment. Keeping software working all of the time. Continuous delivery -> code -> build -> unit tests -> validation -> packaging -> artefact with build status and log. Principles -> all builds should pass the coffee test (testing code should be quick, so people are more likely to test the code), commit the smallest amount of code possible, don't leave the build broken (delay meetings etc until the code is fixed) 
+
+0:02:09            -> continuous integration, delivery and deployment. Keeping software working all of the time. Continuous delivery -> code -> build -> unit tests -> validation -> packaging -> artefact with build status and log. Principles -> all builds should pass the coffee test (testing code should be quick, so people are more likely to test the code), commit the smallest amount of code possible, don't leave the build broken (delay meetings etc until the code is fixed) 
+
+0:03:42            -> use a trunk-based development flow -> we have branch based and trunk based -> no long-running branches. We have multiple commits each day, he prefers trunk based approaches, especially when merging branches. Have robust tests, which return a status, log and artefact 
+
+
+-----------------------------------------------
+Video: The continuous delivery pipeline
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:56            -> continuous integration and delivery. Continuous delivery -> deploying change to a production like environment -> submitting and testing code continually. Only build artefacts once -> and then use them in all the environments. Artefacts shouldn't be allowed to change (they should be immutable). You want them to be built once and to be immutable -> so people can trust them and to show people are looking at the same one. Doing this also means the artefact is traceable if something goes wrong 
+
+0:04:02            -> the pipeline is -> code -> version control -> CI system creates build -> artefact is added to central repo -> staging -> testing -> production (the change is released to the software). Staging should be a copy of production -> we're looking at the pipeline for creating software. Each of the tests is completed and - this is done before the code is submitted. If there is a break in the pipeline, the process stops so manual  troubleshooting can happen. The team is also notified of these errors 
+
+0:05:07            -> deployments should be idempotent / unchangeable -> once code is deployed, it is deployed. One change to the code needs to be traceable, and cycle times for deploying new code can be monitored. Team flow can be tracked as people write code 
+
+
+-----------------------------------------------
+Video: The role of QA
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:50            -> the role of QA -> testing -> unit testing (tests at the lowest level of the application, there is a test in the function to validate it), code hygiene (best practices for the infrastructure being used), integration testing (technical testing with the dependencies included), TDD, BDD, ATDD (testing from an outside in perspective, test-driven development - before the code is written, behaviour driven development - this works with stakeholders, acceptance test driven development - this finds scenarios from the end user's perspective) 
+
+0:03:56            -> slow tests -> use non-blocking tests, schedule tests (e.g nightly), use monitoring to accomplish test coals. Other test types are infrastructure testing (this can be a slow running test, running configuration management tests) and performance testing (load, stress, soak, spike) - these consume more resources, and security testing -> testing is important for a continuous delivery pipeline  
+
+
+-----------------------------------------------
+Video: Your CI toolchain
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:04:02            -> delivery tools -> a pipeline is a series of stages and each one is backed by a different tool. Version control (changes to code being seen as different layers, e.g using git), continuous delivery systems (Jenkins is popular for this), build tools (these are language dependent), unit testing (JUnit, Golint, Gofmt), integration testing (Robot, Protractor, Cucumber), software for running tests on the code), artefact repository (once code is tested, sending it e.g to Docker Hub) 
+
+0:04:50            -> the final stage is deployment -> Rundek is a popular workflow for this -> some people write their own tests (rather than using existing software for it), tools in this space are continually developing -> only invest in the software the project needs 
+
+
+***********************************************
+Chapter: 6. Reliability Engineering
+***********************************************
+
+
+-----------------------------------------------
+Video: Engineering doesn't end with deployment
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:48            -> reliability engineering -> reliability is how much a system or component can be trusted to deliver its capabilities to users. Mean time to recovery -> how quickly the service can recover after a disruption. Mean time between failures -> average time in between service disruption. We have -> extend delivery to production, extend operations feedback to project, embed project knowledge into operations and embed operations knowledge into project 
+
+0:02:57            -> we are looking at bridging the gap between dev and ops. Design for operation and operate for design -> designing the project to be reliable and looking at the practices within operations. Site reliability engineering -> having a feedback loop which improves the product's operational abilities 
+
+
+-----------------------------------------------
+Video: Design for operation: Theory
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:08            -> operations -> the activities which happen in production. How the application is designed to work in adverse conditions -> design patterns. There is a book called Release It which manages the structure of code using an application first approach -> looking at the types of failures in code (integration points). Cascading failures -> the top threat to stability in code 
+
+0:02:03            -> if a server is down then it could affect other layers of the architectures. Circuit breaker patterns -> these watch for failures and stops making calls to systems where too many failures are detected (also using timers), to prevent the spread of outages to other parts of the architecture 
+
+0:03:53            -> separating different parts of the software to improve stability in case of failures 
+
+
+-----------------------------------------------
+Video: Design for operation: Practice
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:42            -> operations -> all systems fail (there will be system failures). Deliberate adversity -> deliberately challenging a server (like a vaccine priming the immune system). Deliberately failing so when real failures happen the system is more resilient. Performance -> fix the mistake, don't remake the entire system 
+
+0:05:21            -> code profiles for error detection -> these are used to understand why programs run slowly among others. Find the problems before the code is released. Thinking about how resilient the code will be to failure before it's written 
+
+
+-----------------------------------------------
+Video: Operate for design: Metrics and monitoring
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:09            -> how to make feedback loops -> monitoring the code via a lean approach. How conflict systems failure (paper) -> change introduces new forms of failure, complex systems contain changing mixtures of failures latent within them, all complex systems are always running in degraded mode. Complete the operations feedback loop to development -> a build (minimum viable for goals), measure (get a metric for monitoring), learn approach for monitoring, repeat . Areas of monitoring -> service performance and uptime (the highest level, synthetic checks), software component metrics (monitoring done on ports), system metrics (CPU / memory e.g graphical approaches of monitoring), application metrics (these give measures of the e.g number of logins per hour) 
+
+0:05:24            -> performance metrics -> APM - application performance management, RUM - real user monitoring. Security monitoring -> attacks happen in stages, and we can monitor for different stages -> system / application security, custom application events, anomalies (access from irregular IPs). Metrics -> time series datapoints. You can over-monitor things -> so too many resources go into it 
+
+
+-----------------------------------------------
+Video: Operate for design: Logging
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:02            -> logging -> what, when, where, who, where. Centralised logging -> sending all of the logs to a server. Don't collect log data you won't use, retain log data for as long as it can be used (don't keep too much because it will overrun resources), alert only on what you must respond to (only alert on specific metrics). Errors need to be clearly defined -> not standard errors (this is the difference between an error and a warning). Don't exceed business security needs, logs change (we need a feedback loop). Logging and log management 
+
+0:03:03            -> logging -> what, when, where, who, where. Centralised logging -> sending all of the logs to a server. Don't collect log data you won't use, retain log data for as long as it can be used (don't keep too much because it will overrun resources), alert only on what you must respond to (only alert on specific metrics). Errors need to be clearly defined -> not standard errors (this is the difference between an error and a warning). Don't exceed business security needs, logs change (we need a feedback loop). Logging and log management 
+
+
+-----------------------------------------------
+Video: Your SRE toolchain
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:48            -> SRE -> cover some which are representative devops. Monitoring -> there are different softwares for this (software as a service monitoring), open source monitoring (these can be used to collect large amounts of metrics). Log management -> managing logs which are created to record metrics 
+
+0:04:04            -> transparent uptime principles / unit testing -> there are some softwares which can export results to tests, and security testing. You can also write your own testing and or logging software 
+
+
+***********************************************
+Chapter: 7. Additional DevOps Resources
+***********************************************
+
+
+-----------------------------------------------
+Video: Unicorns, horses, and donkeys, oh my
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:12            -> devops can apply to 'unicorns' (startups, trendsetters), 'horses' (large companies) and 'donkeys' (the everyman, regular teams/ people) <- aka, devops can be used on every size of company 
+
+0:03:20            -> conferences (American) -> devops days (this was the conference where devops was first hypothesised), velocity and devops enterprise summit <- there are multiple conferences depending on if you are in a tech hub (and you can also start conferences). Different conferences attract different sizes of companies, have different costs depending on the size of the companies which attend and can be used for networking 
+
+0:04:44            -> different conferences target different aspects of technology, and attract different company sizes. These have speakers and can be used to learn from the failures of others 
+
+
+-----------------------------------------------
+Video: Ten best DevOps books you need to read
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:04:21            -> books -> the visible ops (itil in four stages), continuous delivery (the book on continuous delivery, practices and principles), release it! (for designing and deploying production-ready software, design patterns), effective devops (organisational alignment), lean software development (agile toolkit, the benefits of value stream mapping and waste reduction), web operations (these are often the books of conference speakers), the practice of cloud system administration (this has an entire section on devops), the devops handbook (for agile code), leading the transformation (for agile and devops at scale, for leaders CTOs etc), the phoenix project (it's in a novel format and follows a company who started implementing devops) 
+
+
+-----------------------------------------------
+Video: Navigating the series of tubes
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:23            -> the best series of information on devops -> Twitter, devopsweekly.com (newsletter), Gareth Grove on Twitter (who runs the newsletter), Alan Shimel's devops.com, dzone.com (the most technical), infoq.com, devopscafe (John Willis, Damon Edwards), arresteddevops podcast, foodfight. Blogs -> kitchensoap, itrevolution, dev2ops, continuousdelivery, stochasticresonance, jedi, morethanseven. Slideshare, YouTube and vimeo for different devops conference materials, creating content on devops 
+
+
+***********************************************
+Chapter: 8. The Future of DevOps
+***********************************************
+
+
+-----------------------------------------------
+Video: Cloud to containers to serverless
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:56            -> changes in the space happen quickly (e.g cloud computing was introduced quickly). There are public, private and hybrid clouds (which are a mix of public and private clouds). The cloud is a driver for devops techniques because it allows for the distribution of computing loads. Containers are another example -> docker. You bundle the app and its dependencies into a container -> most modern OS's support it. Containers take seconds to provision -> immutable infrastructure deployment 
+
+0:04:59            -> an entry point is a start point for the container -> containers have been growing at a fast pace. Serverless -> functions as a service or nano-compute -> these are invoked in provision as they are called. There are also a broad range of use cases for containers 
+
+
+-----------------------------------------------
+Video: The rugged frontier of DevOps: Security
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:45            -> security -> Dev:Ops:Security = 100:10:1 <- security is often understaffed. Rugged -> code will be used in ways which are unintended and will be used for longer than intended. Culture -> self-realisation, the amount of waste the system produces. Deputise a security champion in each group of developers to account for the lack of security professionals. Infrastructure as code -> defined automation vs discovery-based auditing. Continuous delivery -> pushing code straight to production. Software supply chain -> avoid repeating flaws in the code 
+
+0:05:29            -> regression testing -> take security vulnerabilities and test for them. If there is a mistake, make a test out of the mistake which was made to avoid repeating it. Chef -> there is an auto mode, there is other software, threatstack. Attack testing -> how we know if we're being attacked and what is being attacked -> tests which are run to ensure security needs are met 
+
+
+***********************************************
+Chapter: Conclusion
+***********************************************
+
+
+-----------------------------------------------
+Video: Next steps: Am I a DevOp now?
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:02            -> core concepts of devops -> practicing in devops -> documentation and online tutorials. You can experiment with it -> make an AWS account or copy someone else's code and hack with it. Committing code changes quickly, rather than deploying them all in large batches. Devops is an approach of managing productivity in the software development pipeline. T shaped individual -> deep knowledge / expertise in one area, and broad knowledge of everything else 
+
+0:03:59            -> operations engineers create and manage services for various purposes -> all are engineers but have different specialisations 
+
+0:04:57            -> the purpose of devops for productivity in the software development pipelines 
+
