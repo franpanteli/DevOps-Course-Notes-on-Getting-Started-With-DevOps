@@ -1,7 +1,5 @@
 # DevOps-Course-Notes-on-Getting-Started-With-DevOps
-This repository contains my notes on the LinkedIn Learning pathway called 'Become a Software Developer'. This is a selection of 11 video courses on various aspects of software development - intended to be taken together to provide a holistic view of the field.  I wrote these notes with the intent of publishing them as a reference resource, with each txt file corresponding to a software development course in the learning pathway. 
-
-The CSS course notes in this repository were written in conjunction with completing its project coursework, which has been published in a separate repository (CSS-Feynman-Portfolio-Project). 
+This repository contains my notes on the LinkedIn Learning pathway called 'Learning Path Getting Started with DevOps'. This is a selection of 5 video courses on various aspects of DevOps engineering - intended to be taken together to provide a holistic view of the field.  I wrote these notes with the intent of publishing them as a reference resource, with each txt file corresponding to a software development course in the learning pathway. 
 
 This is a list of the various files in this repository and a description of the associated course and instructor name: 
 * *Course Title: DevOps Foundations: Monitoring and Observability*
